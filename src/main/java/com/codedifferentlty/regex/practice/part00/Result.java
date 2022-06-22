@@ -12,6 +12,26 @@ public class Result {
 
     public long repeatedString(String s, long n) {
         // Write your code here
-        return 0;
+        int aCount = 0;
+        int secondACount = 0;
+        long total;
+        long wholeCount = n / s.length();
+        long remainder = n % s.length();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a') {
+                aCount++;
+            }
+        }
+        long wholeAOccurrences = aCount * wholeCount;
+        if (remainder == 0) {
+            total = wholeAOccurrences;
+        } else {
+            String sub = s.substring(0, (int) remainder);
+            for (int i = 0; i < sub.length(); i++) {
+                secondACount++;
+            }
+            total = wholeAOccurrences + secondACount;
+        }
+        return total;
     }
 }
